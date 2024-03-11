@@ -89,7 +89,7 @@ router.post(`/`, async (req, res) => {
 });
 
 // update post
-router.patch(`/:id`, async (req, res) => {
+router.put(`/:id`, async (req, res) => {
   try {
     if (!mongoose.isValidObjectId(req.params.id)) {
       return res.status(400).send("Invalid post id");
