@@ -43,10 +43,10 @@ router.get(`/:id`, async (req, res) => {
 // create new post
 router.post(`/`, async (req, res) => {
   try {
-    const category = await Category.findById(req.body.category);
-    if (!category) {
-      return res.status(400).send("invalid Category");
-    }
+    // const category = await Category.findById(req.body.category);
+    // if (!category) {
+    //   return res.status(400).send("invalid Category");
+    // }
     let {
       title,
       description,
@@ -89,15 +89,15 @@ router.post(`/`, async (req, res) => {
 });
 
 // update post
-router.put(`/:id`, async (req, res) => {
+router.patch(`/:id`, async (req, res) => {
   try {
     if (!mongoose.isValidObjectId(req.params.id)) {
       return res.status(400).send("Invalid post id");
     }
-    const category = await Category.findById(req.body.category);
-    if (!category) {
-      return res.status(400).send("invalid Category");
-    }
+    // const category = await Category.findById(req.body.category);
+    // if (!category) {
+    //   return res.status(400).send("invalid Category");
+    // }
 
     const updatedpost = await Post.findByIdAndUpdate(
       req.params.id,
